@@ -2,32 +2,47 @@ import { SxProps } from "@mui/material";
 
 const styles: Record<string, SxProps> = {
   container: {
+    position: "absolute",
     width: "300px",
     height: "300px",
-    margin: "100px",
+    margin: "50px",
     borderRadius: "150px",
-    border:"2px solid #007ba7"
+    border: "2px solid #007ba7",
+    overflow: "hidden",
   },
-  image:{
-    zIndex:"-1"
+
+  initials: {
+    position: "relative",
+    height: "155px",
+    fontSize: "120px",
+    margin: "20% 25% 30% 25%",
   },
-  avatar:{
-    height:"150px",
-    fontSize:"120px",
-    margin:"25%"
+
+  image: {
+    borderRadius: "150px",
+    zIndex: "1",
   },
-  edit:{
-    marginTop:"-30px",
+  uploadIcon: {
+    position: "absolute",
+    backgroundColor: "#CCCCCC",
+    opacity: "0.7",
+    padding: "10px 140px",
+    color: "black",
+    marginTop: "-40px",
+    cursor: "pointer",
+    zIndex: "2",
   },
-  modal:{
-    width:"fit-content",
-    height:"auto",
-    margin:"1% 15%",
+
+  // Modal Styling
+  modal: {
+    width: "fit-content",
+    height: "auto",
+    margin: "5% 30%",
   },
-  modalContent:{
-    backgroundColor:"white",
-    padding:"20px"
-  }
+  modalContent: {
+    backgroundColor: "white",
+    padding: "20px",
+  },
 };
 
 export default styles;

@@ -1,4 +1,4 @@
-import { Box, InputBase, Button } from "@mui/material";
+import { Box, Button, InputBase } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 import styles from "./styles";
 
@@ -8,6 +8,8 @@ const Upload = ({
   minWidth,
   maxWidth,
   aspectRatio,
+  removeImage,
+  setImageUrl
 }: any) => {
   const { handleSubmit, control } = useForm({
     mode: "onSubmit",
@@ -84,6 +86,12 @@ const Upload = ({
 
   const handleFileUpload = async (data: any) => {
     console.log(data);
+    const files = data.file;
+    if (files && files.length > 0) {
+      const imageUrl = URL.createObjectURL(files[0]);
+      setImageUrl(imageUrl);
+    }
+
   };
 
   return (
@@ -101,7 +109,7 @@ const Upload = ({
               type="file"
               inputRef={ref}
               onChange={(e: any) => {
-                onChange(e.target.files);
+                onChange(e?.target?.files);
               }}
             />
             {error && <p>{error.message}</p>}
@@ -109,7 +117,13 @@ const Upload = ({
         )}
       />
 
-      <Button onClick={handleSubmit(handleFileUpload)} sx={styles.button}>Upload</Button>
+      <Button onClick={handleSubmit(handleFileUpload)} sx={styles.button}>
+        Upload
+      </Button>
+      <Button onClick={removeImage} sx={styles.button}>
+        Remove
+      </Button>
+      
     </Box>
   );
 };

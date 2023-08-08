@@ -11,6 +11,7 @@ const styles: Record<string, SxProps> = {
   button:{
     backgroundColor: '#191970',
     color: 'white',
+    margin:"0px 20px",
     padding: '5px 10px',
     border: 'none',
     borderRadius: '8px',
