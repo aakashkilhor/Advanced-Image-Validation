@@ -5,7 +5,9 @@ import Upload from "../Upload";
 import styles from "./styles";
 
 const Image = () => {
+  // Toggle the modal
   const [open, setOpen] = useState(false);
+  
   const [imageUrl,setProfileImage] = useState<any>()
 
   let text = "purple";

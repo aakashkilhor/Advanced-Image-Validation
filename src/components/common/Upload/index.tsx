@@ -9,8 +9,17 @@ const Upload = ({
   maxWidth,
   aspectRatio,
   removeImage,
-  setImageUrl
-}: any) => {
+  setImageUrl,
+}: {
+  fileSizeLowerLimitKB: number;
+  fileSizeUpperLimitKB: number;
+  minWidth: number;
+  maxWidth: number;
+  aspectRatio: number;
+  removeImage: any;
+  setImageUrl: any;
+}) => {
+
   const { handleSubmit, control } = useForm({
     mode: "onSubmit",
   });
@@ -91,7 +100,6 @@ const Upload = ({
       const imageUrl = URL.createObjectURL(files[0]);
       setImageUrl(imageUrl);
     }
-
   };
 
   return (
@@ -116,14 +124,12 @@ const Upload = ({
           </Box>
         )}
       />
-
       <Button onClick={handleSubmit(handleFileUpload)} sx={styles.button}>
         Upload
       </Button>
       <Button onClick={removeImage} sx={styles.button}>
         Remove
       </Button>
-      
     </Box>
   );
 };
